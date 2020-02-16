@@ -1,16 +1,19 @@
 const chalk = require('chalk')
 
-const specify = require('../../createhash/methods/specify.js').specify
+const specify = require('../../methods/createhash/specify.js').specify
 
 function test_specify(array) {
-    console.log(chalk.cyan(`=== numberfy method ===`))
+    console.log(chalk.cyan(`=== specify method ===`))
     // testing function specify
     let mod_ten_array = specify(array)
 
-    let tenfold = mod_ten_array.length%10 === 0
+    let tenfold =  mod_ten_array.length%10 === 0
 
-    console.log(tenfold)
-
+    if (tenfold === true) {
+        console.log(chalk.green(`[x] array legnth equals %10 === 0!`))
+    } else {
+        console.error(chalk.red(`ERROR: array is not filled correctly!`))
+    }
     
     let zero_to_nine = mod_ten_array.every(digit => {
         return digit >= 0 && digit <= 9

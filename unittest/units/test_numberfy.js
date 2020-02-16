@@ -1,6 +1,6 @@
 const chalk = require('chalk')
 
-const numberfy = require('../../createhash/methods/numberfy.js').numberfy
+const numberfy = require('../../methods/createhash/numberfy.js').numberfy
 
 function test_numberfy(string) {
     console.log(chalk.cyan(`=== numberfy method ===`))

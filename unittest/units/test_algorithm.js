@@ -1,6 +1,6 @@
 const chalk = require('chalk')
 
-const algorithm = require('../../createhash/methods/algorithm.js').algorithm
+const algorithm = require('../../methods/createhash/algorithm.js').algorithm
 
 function test_algorithm(array) {
     console.log(chalk.cyan(`=== algorithm method ===`))

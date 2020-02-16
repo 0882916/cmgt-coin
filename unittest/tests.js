@@ -1,8 +1,8 @@
 const chalk = require('chalk')
 
 const test_numberfy = require('./units/test_numberfy.js').test_numberfy
-const test_specify = require('../createhash/methods/specify.js').test_specify
-const test_algorithm = require('../createhash/methods/algorithm.js').test_algorithm
+const test_specify = require('./units/test_specify.js').test_specify
+const test_algorithm = require('./units/test_algorithm.js').test_algorithm
 
 let string = 'test'
 let array = [0, 1, 2, 3, 4, 5]
