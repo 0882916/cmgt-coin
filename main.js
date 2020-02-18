@@ -22,7 +22,7 @@ axios.get(next_url)
             console.log(chalk.inverse(res.data.message))
             return
         } else {
-            console.time('\nFINAL TIME\n')
+            console.time('\nFINAL TIME')
             let last_block =
                 res.data.blockchain.hash +
                 res.data.blockchain.data[0].from +
@@ -46,7 +46,7 @@ axios.get(next_url)
             */
             search(base_url, name, compose(last_block, next_block), 0)
 
-            console.timeEnd('\nFINAL TIME\n')
+            console.timeEnd('\nFINAL TIME')
         }
     })
     // catch error when get request fails
