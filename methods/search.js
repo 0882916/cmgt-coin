@@ -10,9 +10,9 @@ function compose(last, next) {
     let string_next = sha256(string_last) + next
 
     console.group(chalk.yellow('INFO: hash data'))
-    console.log(chalk.yellow(`blockchain string:\n${last}\n`))
-    console.log(chalk.yellow(`blockchain %10:\n${string_last}\n`))
-    console.log(chalk.yellow(`blockchain hash:\n${sha256(string_last)}\n`))
+    // console.log(chalk.yellow(`blockchain string:\n${last}\n`))
+    // console.log(chalk.yellow(`blockchain %10:\n${string_last}\n`))
+    // console.log(chalk.yellow(`blockchain hash:\n${sha256(string_last)}\n`))
     console.log(chalk.yellow(`transaction string:\n${sha256(string_last) + next}\n`))
     console.groupEnd('INFO: hash data')
 
