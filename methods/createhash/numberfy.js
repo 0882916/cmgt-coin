@@ -1,4 +1,4 @@
-// strip white spaces, convert to character codes and split multi-character numbers
+// strip white spaces, convert to character codes and split multi-character numbers'
 function numberfy(string) {
     let charcodes = new Array()
 
