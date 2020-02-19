@@ -1,21 +1,13 @@
 const chalk = require('chalk')
 
-const specify = require('../../methods/createhash/specify.js').specify
+const numberfy = require('../methods/createhash/numberfy.js').numberfy
 
-function test_specify(array) {
-    console.log(chalk.cyan(`=== specify method ===`))
-    // testing function specify
-    let mod_ten_array = specify(array)
+function test_numberfy(string) {
+    console.log(chalk.cyan(`=== numberfy method ===`))
+    // testing function numberfy
+    let number_array = numberfy(string)
 
-    let tenfold =  mod_ten_array.length%10 === 0
-
-    if (tenfold === true) {
-        console.log(chalk.green(`[x] array legnth equals %10 === 0!`))
-    } else {
-        console.error(chalk.red(`ERROR: array is not filled correctly!`))
-    }
-    
-    let zero_to_nine = mod_ten_array.every(digit => {
+    let zero_to_nine = number_array.every(digit => {
         return digit >= 0 && digit <= 9
     })
 
@@ -25,7 +17,7 @@ function test_specify(array) {
         console.error(chalk.red(`ERROR: numberfy function contains characters outside of [0-9]!`))
     }
 
-    let multi_to_single = mod_ten_array.every(digit => {
+    let multi_to_single = number_array.every(digit => {
         return digit.length === 1
     })
 
@@ -35,7 +27,7 @@ function test_specify(array) {
         console.error(chalk.red(`ERROR: numberfy function contains characters outside of [0-9]!`))
     }
 
-    let check_type = mod_ten_array.every(digit => {
+    let check_type = number_array.every(digit => {
         return typeof digit === 'number'
     })
 
@@ -47,5 +39,5 @@ function test_specify(array) {
 }
 
 module.exports = {
-    test_specify: test_specify
+    test_numberfy: test_numberfy
 }
