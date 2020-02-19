@@ -5,13 +5,13 @@ async function promise(last, next, url, name, n) {
 
     let parallel = [
         first = new Promise(function (resolve, reject) {
-            setTimeout(() => resolve(search(url, name, compose(last, next), n * 0), 5000))
+            setTimeout(() => resolve(search(url, name, compose(last, next), n * 5), 5000))
         }),
         second = new Promise(function (resolve, reject) {
-            setTimeout(() => resolve(search(url, name, compose(last, next), n * 1), 4500))
+            setTimeout(() => resolve(search(url, name, compose(last, next), n * 6), 4500))
         }),
         // third = new Promise(function (resolve, reject) {
-        //     setTimeout(() => resolve(search(url, name, compose(last, next), n * 2), 4000))
+        //     setTimeout(() => resolve(search(url, name, compose(last, next), n * 7), 4000))
         // }),
         // fourth = new Promise(function (resolve, reject) {
         //     setTimeout(() => resolve(search(url, name, compose(last, next), n * 3), 3500))
