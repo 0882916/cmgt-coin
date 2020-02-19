@@ -9,6 +9,8 @@ const search = require('./methods/search.js').search
 // user and url info
 const name = 'Kaspar Dohrin 0882916'
 
+const n = 1234567890123456
+
 const base_url = 'https://programmeren9.cmgt.hr.nl:8000/api/blockchain'
 const next_url = 'https://programmeren9.cmgt.hr.nl:8000/api/blockchain/next'
 
@@ -19,7 +21,7 @@ axios.get(next_url)
     .then(res => {
         // if next block returns open === false, else continue
         if (res.data.open === false) {
-            console.log(chalk.inverse(res.data.message))
+            console.log(chalk.inverse(`${res.data.message}: ${res.data.countdown}`))
             return
         } else {
             console.time('\nFINAL TIME')
@@ -44,7 +46,7 @@ axios.get(next_url)
             * of the compose hash from blockchain added to the string of next_block and the value
             * where nonce starts at (0)
             */
-            search(base_url, name, compose(last_block, next_block), 0)
+            search(base_url, name, compose(last_block, next_block), n)
 
             console.timeEnd('\nFINAL TIME')
         }
