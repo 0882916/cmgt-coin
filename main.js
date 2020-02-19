@@ -13,7 +13,7 @@ const name = 'goml'
 const base_url = 'https://programmeren9.cmgt.hr.nl:8000/api/blockchain'
 const next_url = 'https://programmeren9.cmgt.hr.nl:8000/api/blockchain/next'
 
-const n = 1000000
+const n = 12345678901234567890
 
 let last_block
 let next_block
