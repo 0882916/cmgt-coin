@@ -1,0 +1,72 @@
+HIGHER ORDER FUNCTIONS, FUNCTIONS AS FIRST CLASS CITIZENS
+
+-Assigned as an identifier (variable) value
+-Assigned to object property values
+-Passed as arguments
+-Returned from functions
+
+example:
+==========================================================
+const reduce = (reducer, initial, arr) => {
+  // shared stuff
+  let acc = initial;
+  for (let i = 0, { length } = arr; i < length; i++) {
+    // unique stuff in reducer() call
+    acc = reducer(acc, arr[i]);
+  // more shared stuff
+  }
+  return acc;
+};
+----
+const filter = (
+  fn, arr
+) => reduce((acc, curr) => fn(curr) ?
+  acc.concat([curr]) :
+  acc, [], arr
+);
+reduce((acc, curr) => acc + curr, 0, [1,2,3]); // 6
+==========================================================
+
+// deze twee maken gebruik van dezelfde logica, maar door
+// een functie mee te geven in een higher order function
+// kan de logica van de abstracte functiie hebruikt worden
+// maar verschillende waarden returnen
+
+const censor = words => filter(
+  word => word.length !== 4,
+  words
+);
+
+const startsWithS = words => filter(
+  word => word.startsWith('s'),
+  words
+);
+
+IMMUTABLE DATA
+Mutabale data is data die je kunt aanpassen nadat deze is gedefinieerd,
+bijv. een array, objects, functions classes, sets en maps.
+Immutable data is data die nadat deze wordt gedeclareerd niet meer veranderd,
+denk aan numbers en strings.
+
+Dit is handig om te weten, doordat je soms een variable assigned aan een nieuwe,
+denkende dat deze zal zijn wat deze hiervoor was, maar later in het process veranderd,
+en de assigned variable ook veranderd, terwijl deze zich eerder in het proces bevind.
+
+example:
+-Object.assign(a, {foo: 'bar'}) rather than a.foo = 'bar'
+-Array.prototype.map, Array.prototype.filter, or Array.prototype.concat, 
+  rather than mutating methods like Array.prototype.push, Array.prototye.pop, or Array.prototype.sort
+
+FUNCTION COMPOSITION
+De output van de ene functie bepaald de output van de tweede.
+
+RECURSION
+Een functie die zichzelf aanroept vanuit zichzelf zolang de conditie die binnen de functie voor de
+input niet behaald is
+
+PURE FUNCTIONS
+Pure functies zijn functies die de originele waarde van een variable niet aanpassen
+example:
+a = 'hey'
+console.log(a.toUpperCase()) // HEY
+console.log(a) // hey
