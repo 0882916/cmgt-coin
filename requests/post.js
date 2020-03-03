@@ -1,9 +1,8 @@
-// libraries
 const axios = require('axios')
 
 // post nonce matched and username to url
-async function post(base_url, name, nonce) {
-    await axios.post(base_url, {
+function post(base_url, name, nonce) {
+    return axios.post(base_url, {
         "nonce": nonce.toString(),
         "user": name
     }, {

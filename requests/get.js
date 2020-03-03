@@ -7,8 +7,8 @@ const compose = require('../methods/search.js').compose
 const search = require('../methods/search.js').search
 
 // get request to next_url and save body in last_block and next_block
-async function get(next_url, nonce) {
-    await axios.get(next_url)
+function get(next_url, nonce) {
+    return axios.get(next_url)
         .then(res => {
             // if next block returns open === false, else continue
             if (res.data.open === false) {
